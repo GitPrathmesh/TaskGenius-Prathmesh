@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../models/Task'); 
 
-//GET 
+// GET 
 router.get('/', async (req, res) => {
   try {
     const tasks = await Task.find().sort({ createdAt: -1 }); 
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-//2. POST 
+// POST 
 router.post('/', async (req, res) => {
   const { title } = req.body; 
 
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// === 3. PUT 
+// PUT 
 router.put('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -59,7 +59,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// 4. DELETE
+// DELETE
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
